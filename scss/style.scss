@@ -1,0 +1,576 @@
+@mixin dark-overlay {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.navbar {
+    opacity: 0.9;
+
+    .navbar-toggler:focus {
+        outline: none
+    }
+
+    .navbar-nav {
+        .nav-link {
+            color: #fff;
+        }
+    }
+
+    .fa-bars {
+        color: white;
+        border-style: none;
+    }
+}
+
+
+.home .carousel {
+    .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+    }
+
+    .carousel-image-1 {
+        background: url(../img/mountain1.jpg);
+        background-size: cover
+    }
+
+    .carousel-image-2 {
+        background: url(../img/mountain1.jpg);
+        background-size: cover
+    }
+
+    .carousel-image-3 {
+        background: url(../img/mountain1.jpg);
+        background-size: cover
+    }
+
+    .carousel-item {
+        height: 700px;
+
+        &:after {
+            @include dark-overlay;
+        }
+
+        .carousel-caption {
+            top: 50%;
+            transform: translateY(-50%)
+        }
+    }
+}
+
+
+
+.features {
+    .card {
+        border: none;
+        position: relative;
+        padding-top: 30px;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 40%;
+            left: 30%;
+            border-bottom: 3px solid #f1eee9;
+            ;
+        }
+
+        .card-body:hover {
+            cursor: pointer;
+            opacity: 0.7;
+            color: #c7b299;
+        }
+
+
+        .fas,
+        .fab {
+            padding-bottom: 1.5rem
+        }
+
+    }
+
+
+    .container:nth-of-type(2) {
+        margin-top: 40px;
+        background-color: #fbfaf8;
+        max-width: 100%;
+        position: relative;
+
+        .container {
+            padding-top: 30px;
+        }
+
+        .row {
+            margin-top: 15%;
+            position: relative;
+
+            .col-md-6 {
+                margin: 0;
+                padding: 0;
+            }
+
+            &>img {
+                position: absolute;
+                top: -20.5%;
+                left: 50%;
+                width: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+    }
+
+}
+
+.breakpoint {
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #211b19 0%, #4e3427 100%);
+
+    span {
+        color: #c7b299;
+    }
+
+    p {
+        color: #615855;
+    }
+
+    .col-md-6:nth-of-type(2) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .btn {
+            height: 45px;
+        }
+    }
+}
+
+.portfolio {
+    .buttons {
+        padding: 25px;
+
+        .btn:nth-of-type(1) {
+            height: 38px;
+            margin-bottom: 5px;
+        }
+
+        .btn:not(.btn-brown) {
+            border: 1px solid #ebebeb;
+            color: #8c8c8c;
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.portfolio__cards {
+    .card {
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+
+            img {
+                filter: brightness(30%);
+            }
+
+            .card-body {
+                background-color: #362f2d;
+            }
+
+            h4 {
+                color: #fff;
+            }
+
+            p {
+                color: #c7b299;
+            }
+        }
+
+        .card-body {
+            background-color: #fbfaf8;
+        }
+
+        h4 {
+            color: #c7b299;
+        }
+
+        p {
+            color: #d1d1d1;
+        }
+    }
+
+}
+
+
+.about>.row {
+    min-height: 550px;
+    background-repeat: no-repeat;
+    background: url(../img/aboutus.jpg);
+    text-align: center;
+
+    .container {
+        transform: translateY(50%);
+
+        .fa-play-circle {
+            position: relative;
+        }
+
+        .fa-play-circle:after {
+            content: '';
+            width: 58px;
+            height: 58px;
+            display: inline-block;
+            z-index: -1;
+            background-color: black;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+    }
+}
+
+.about__iphone {
+    .col-md-8 {
+        margin-top: 6%;
+
+        &>p {
+            padding-top: 2%;
+        }
+
+        .iphone__list {
+            padding-top: 5%;
+            padding-left: 8%;
+
+            p:before {
+                font-family: "Font Awesome 5 Free";
+                content: "\f138";
+                font-weight: 900;
+                padding-right: 15px;
+                color: #c7b299;
+            }
+        }
+
+
+    }
+
+}
+
+.blog {
+    .blog__info {
+        min-height: 210px;
+        margin: 0 auto;
+        justify-content: center;
+        background-image: linear-gradient(to right, #211b19 0%, #4e3427 100%);
+
+        .info__container {
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .card {
+            border: none;
+            position: relative;
+            padding-top: 30px;
+            background-color: transparent;
+            width: 150px;
+            height: 200px;
+            margin: 0 10px;
+
+            .card-body {
+                height: 120px;
+                padding: 0;
+                margin: 0;
+                width: 150px;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 20px;
+                    width: 30px;
+                    left: 60px;
+                    border-bottom: 3px solid #fff;
+                    ;
+                }
+            }
+
+            .card-body:hover {
+                cursor: pointer;
+                opacity: 0.7;
+                color: #c7b299;
+            }
+
+            img {
+                padding-bottom: 10px;
+            }
+
+            h4 {
+                font-weight: 200;
+                font-size: 2.5rem;
+
+            }
+
+            p {
+                color: #c7b299;
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+
+        }
+    }
+
+}
+
+.blog__posts {
+    .card {
+        border: 1px solid #f8f8f8;
+        position: relative;
+        cursor: pointer;
+
+        &:after {
+            content: url(../img/date.png);
+            display: block;
+            width: 40px;
+            height: 40px;
+            top: 10px;
+            left: 10px;
+            position: absolute;
+        }
+
+        .card-body {
+            text-align: left;
+        }
+
+        a {
+            color: #c7b299;
+        }
+
+        i {
+            padding-left: 5px;
+        }
+    }
+}
+
+
+.contact__top {
+    background-image: url(../img/contactbgc_Easy-Resize.com.jpg);
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:after {
+        @include dark-overlay();
+    }
+
+    img {
+        z-index: 1;
+        margin-top: 50px;
+        position: relative;
+        height: 100%;
+        padding: 20px;
+    }
+}
+
+.contact__bottom {
+    min-height: 450px;
+    background-color: #191919;
+
+    .contact__span--blue {
+        color: #00bff3;
+    }
+
+    .contact__span--bright {
+        color: #959595;
+    }
+
+    h3 {
+        font-weight: 300;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .contact__par--small {
+        color: #363636;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 20px;
+    }
+
+    .contact__hr {
+        width: 100%;
+        height: 1px;
+        background-color: #252525;
+        float: left;
+        margin-top: 10px;
+        display: block;
+    }
+
+    .col-md-3 {
+        text-align: left;
+    }
+
+    .col-md-3:nth-of-type(1) {
+        margin-top: -10px;
+
+        h3 {
+            font-weight: 200;
+            font-size: 2.5rem;
+        }
+
+        a {
+            color: #d1d1d1;
+
+            i {
+                padding-left: 5px;
+            }
+        }
+    }
+
+    .col-md-3:nth-of-type(2) {
+        p:nth-of-type(4) {
+            color: #c7b299;
+        }
+    }
+
+    .dribble__images {
+        padding-top: 20px;
+
+        img {
+            width: 110px;
+            display: block;
+            float: left;
+            padding: 1%;
+        }
+    }
+}
+
+.footer {
+    min-height: 100px;
+    background-color: #111111;
+    font-size: 0.7rem;
+
+    .footer__par {
+        line-height: 100px;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    .footer__span--1 {
+        color: #959595;
+    }
+
+    .footer__span--2 {
+        color: #c7b299;
+    }
+
+}
+
+
+
+
+
+@media (max-width: 992px) {
+
+    .contact__top {
+        img {
+            height: 150px;
+            width: 180px;
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .features {
+        .container:nth-of-type(2) {
+            .row {
+                .col-md-6 {
+                    padding-bottom: 20px
+                }
+
+                &>img {
+                    position: relative;
+                    transform: translate(0, 0);
+                    top: 0;
+                    left: 0;
+                    max-width: 100%;
+                    width: 100%;
+                    height: 50vw;
+                }
+            }
+        }
+    }
+
+    .breakpoint {
+        .col-md-6 {
+            text-align: center;
+
+            .btn {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .contact__top {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio__cards {
+        .card-body {
+            h4 {
+                font-size: 1rem
+            }
+
+            p {
+                font-size: 0.7rem;
+            }
+        }
+
+    }
+
+    .contact__bottom {
+        .col-md-3:nth-of-type(1) {
+            img {
+                display: none;
+            }
+        }
+    }
+
+    .footer {
+        font-size: 0.6rem;
+    }
+}
