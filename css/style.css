@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
+.wrapper {
   overflow-x: hidden;
 }
 
@@ -379,7 +381,7 @@ body {
   color: #00bff3;
 }
 
-.contact__bottom .contact__span--bright {
+.contact__bottom .contact__span--bright a {
   color: #959595;
 }
 
